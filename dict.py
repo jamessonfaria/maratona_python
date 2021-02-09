@@ -37,3 +37,9 @@ alunos = [
 print(alunos)
 print(alunos[0]["nome"])
 print(alunos[1]["nome"])
+
+for aluno in alunos:
+  print(aluno["nome"])
+  print(aluno["idade"])
+  print("########")
+  
