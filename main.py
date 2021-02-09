@@ -24,4 +24,13 @@ print(status)
 status = False
 print(status)
 
+a_float = 10.99
+print(a_float)
+print(type(a_float))
+print(type(a))
+print(type(texto))
+print(type(status))
+
+
+
 
