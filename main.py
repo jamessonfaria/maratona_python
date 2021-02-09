@@ -1,2 +1,3 @@
 #import variaveis
-import operators
+#import operators
+import list_tuples
