@@ -1,3 +1,4 @@
 #import variaveis
 #import operators
-import list
+#import list
+import tuple
