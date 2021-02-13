@@ -12,4 +12,7 @@
 #from day_03 import for_loop
 #from day_03 import modules
 
-from day_04 import request
+#from day_04 import request
+
+#from day_05 import beautiful_soap
+from day_05 import bs
