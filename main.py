@@ -15,4 +15,6 @@
 #from day_04 import request
 
 #from day_05 import beautiful_soap
-from day_05 import bs
+#from day_05 import bs
+
+from day_06 import web_scrapping
