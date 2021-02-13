@@ -24,7 +24,7 @@ def search_keyword(keyword):
     url = f"{url_base}q={keyword}&limit={results_per_page}&start={results_per_page * int(n_page)}"
     urls.append(url)
 
-  print(urls)
+  return urls
 
 def scrapping_indeed(url):
   # url + request
