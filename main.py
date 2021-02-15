@@ -17,4 +17,7 @@
 #from day_05 import beautiful_soap
 #from day_05 import bs
 
-from day_06 import web_scrapping
+#from day_06 import web_scrapping
+
+from day_07 import web_scrapping
+
