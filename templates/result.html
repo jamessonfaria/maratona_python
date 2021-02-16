@@ -8,6 +8,18 @@
 <body>
     <center>
       <h1>Voce buscou por: {{ keyword }}</h1>
+
+      <table>
+      {% for job in jobs %}
+        <tr>
+          <td>{{ job.title }}</td>
+          <td>{{ job.company }}</td>
+          <td>{{ job.location }}</td>
+          <td>{{ job.how_old }}</td>
+          <td><a href="{{job.link}}">Aplicar para a vaga</a></td>
+        </tr>
+      {% endfor %}
+      </table>
     </center>
 </body>
 </html>
