@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 url_base = 'https://br.indeed.com/empregos?'
 results_per_page = 50
 
-def search_keyword(keyword):
+def search_indeed_keyword(keyword):
   #1. faz a busca e descobra quantas pg de resultado
   response = requests.get(f'{url_base}q={keyword}&limit=50&start=0')
   html_response = response.text

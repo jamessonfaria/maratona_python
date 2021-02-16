@@ -1,31 +1,27 @@
 import requests
 from bs4 import BeautifulSoup
 
-url_base = 'https://br.indeed.com/empregos?'
+url_base = 'https://stackoverflow.com/jobs?'
 results_per_page = 50
 
-def search_keyword(keyword):
+def search_so_keyword(keyword):
   #1. faz a busca e descobra quantas pg de resultado
-  response = requests.get(f'{url_base}q={keyword}&limit=50&start=0')
+  response = requests.get(f'{url_base}q={keyword}')
   html_response = response.text
   soup = BeautifulSoup(html_response, 'html.parser')
   
   # descobrimos quantas paginas analisando o codigo
-  pages_links = soup.find('ul', class_="pagination-list").find_all('a')
-  
-  #lista que armazena paginas
-  number_of_pages = [0,1]
-  for link in pages_links:
-    n_page = link.string
-    if n_page == None:
-      continue
-    number_of_pages.append(int(n_page))
+  pages_links = soup.find('div', class_="s-pagination").find_all('a')
+  last_pages = int(pages_links[-2].find('span').string)
+  all_pages = range(1, last_pages)
 
   urls = []
-  for n_page in number_of_pages:
-    url = f"{url_base}q={keyword}&limit={results_per_page}&start={results_per_page * n_page}"
+  for n_page in all_pages:
+    if n_page == 1:
+      url = f'{url_base}q={keyword}'
+    else:
+      url = f'{url_base}q={keyword}&pg={n_page}'
     urls.append(url)
-
   return scrapping_so(urls)
 
 def scrapping_so(urls):
