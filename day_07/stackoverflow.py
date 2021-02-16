@@ -26,9 +26,9 @@ def search_keyword(keyword):
     url = f"{url_base}q={keyword}&limit={results_per_page}&start={results_per_page * n_page}"
     urls.append(url)
 
-  return scrapping_indeed(urls)
+  return scrapping_so(urls)
 
-def scrapping_indeed(urls):
+def scrapping_so(urls):
   all_jobs = []
   for url in urls:
     print("começando uma url...")
@@ -36,16 +36,14 @@ def scrapping_indeed(urls):
     html_response = response.text
     soup = BeautifulSoup(html_response, 'html.parser')
     # filtrar os cards
-    cards = soup.find_all('div', class_="result")
-    for card in cards:
-      company = card.find('span', class_='company')
-      company = company.get_text() if company != None else 'Não encontrada'
+    cards = soup.find_all('div', class_="-job")
+    for card in cards:      
       job = {
-        'title': card.find('a').get('title'),
-        'company': company.strip(),
-        'location': card.find('span', class_='location').string,
-        'how_old': card.find('span', class_='date').string,
-        'link': f"https://br.indeed.com{card.find('a').get('href')}"
+        'title': card.find('a', class_='s-link').get('title'),
+        'company': card.find('h3', class_='fc-black-700').find_all('span')[0].string,
+        'location': card.find('h3', class_='fc-black-700').find_all('span')[1].string,
+        'how_old': card.find('ul', class_='mt4').find('li').string,
+        'link': f"https://stackoverflow.com/{card.find('a', class_='s-link').get('href')}"
       }
       all_jobs.append(job)
   return all_jobs
