@@ -9,6 +9,7 @@ python = "^3.8"
 humanizer-portugues = "^2.4.0"
 requests = "^2.25.1"
 bs4 = "^0.0.1"
+Flask = "^1.1.2"
 
 [tool.poetry.dev-dependencies]
 
