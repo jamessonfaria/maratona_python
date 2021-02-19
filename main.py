@@ -23,4 +23,6 @@
 
 #from day_08 import main_flask
 
-from day_10 import selenium
+#from day_10 import selenium
+
+from day_10 import selenium_instagram
